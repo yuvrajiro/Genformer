@@ -1,0 +1,43 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter notebooks
+.ipynb_checkpoints/
+*.ipynb
+# ...but keep the documentation example notebooks (needed to build the docs)
+!docs/examples/*.ipynb
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# PyTorch and other temporary data
+*.pt
+*.pth
+*.h5
+lightning_logs/
+.darts/
+
+# IDE settings
+.vscode/
+.idea/
+
+# Paper and Summary
+Paper.pdf
+Paper.md
+
+# Packaging and Build
+*.egg-info/
+build/
+dist/
+
+# Documentation
+docs/_build/
+docs/examples/.ipynb_checkpoints/

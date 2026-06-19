@@ -1,0 +1,10 @@
+darts==0.39.0
+gluonts
+lightning
+transformers
+datasets
+opencv-python
+pandas
+numpy
+h5py
+tqdm

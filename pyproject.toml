@@ -1,0 +1,69 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "genformer"
+version = "0.1.0"
+description = "Deep Generative Transformers for Probabilistic Time Series and Spatiotemporal Forecasting"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+keywords = [
+    "time series",
+    "forecasting",
+    "probabilistic forecasting",
+    "spatiotemporal",
+    "transformer",
+    "engression",
+    "deep learning",
+    "pytorch",
+    "uncertainty quantification",
+]
+authors = [
+    { name = "Rahul Goswami" },
+    { name = "Donia Besher" },
+    { name = "Rajdeep Pathak" },
+    { name = "Madhurima Panja" },
+    { name = "Tanujit Chakraborty" }
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Mathematics",
+]
+dependencies = [
+    "torch>=2.0.0",
+    "darts>=0.26.0",
+    "numpy>=1.24.0",
+    "pandas>=2.0.0",
+    "lightning>=2.0.0",
+    "gluonts>=0.14.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/yuvrajiro/Genformer"
+Documentation = "https://github.com/yuvrajiro/Genformer#readme"
+Repository = "https://github.com/yuvrajiro/Genformer"
+Issues = "https://github.com/yuvrajiro/Genformer/issues"
+
+[project.optional-dependencies]
+docs = [
+    "sphinx>=7.0.0",
+    "pydata-sphinx-theme>=0.15",
+    "sphinx-design>=0.5",
+    "sphinx-copybutton>=0.5",
+    "nbsphinx",
+    "ipython",
+    "ipykernel",
+]
+
+[tool.setuptools]
+packages = ["genformer"]

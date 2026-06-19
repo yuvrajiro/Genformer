@@ -1,0 +1,184 @@
+/* ===========================================================================
+   Genformer documentation theme
+   Minimalist palette: one muted teal accent, warm neutrals, ink headings.
+   ======================================================================== */
+
+:root {
+  --gf-ink: #20262b;          /* near-black headings / text          */
+  --gf-accent: #2e6e63;       /* muted teal — the single brand accent */
+  --gf-accent-soft: #5b9085;  /* lighter teal for hover               */
+  --gf-sand: #f6f4ef;         /* warm off-white surface               */
+  --gf-line: #e4e0d8;         /* warm hairline border                 */
+}
+
+html[data-theme="light"] {
+  --pst-color-primary: var(--gf-accent);
+  --pst-color-link: var(--gf-accent);
+  --pst-color-link-hover: var(--gf-ink);
+  --pst-color-inline-code: #3a6b62;
+  --pst-color-surface: var(--gf-sand);
+}
+
+html[data-theme="dark"] {
+  --gf-accent: #86bdb2;
+  --gf-accent-soft: #a6d2c9;
+  --gf-line: rgba(255, 255, 255, 0.10);
+  --pst-color-primary: #86bdb2;
+  --pst-color-link: #9ecabf;
+  --pst-color-link-hover: #cfe6e0;
+  --pst-color-inline-code: #a6d2c9;
+}
+
+/* ---- Typography -------------------------------------------------------- */
+
+.bd-article h1,
+.bd-article h2,
+.bd-article h3 {
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  color: var(--pst-heading-color, inherit);
+}
+
+.bd-article h2 {
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--gf-line);
+}
+
+/* ---- Hero -------------------------------------------------------------- */
+
+.gf-hero {
+  padding: 2.6rem 1rem 1.6rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--gf-line);
+}
+
+.gf-hero h1 {
+  font-size: 2.5rem;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.gf-hero .gf-tagline {
+  font-size: 1.12rem;
+  opacity: 0.78;
+  max-width: 640px;
+  margin: 0 0 1.2rem;
+  line-height: 1.55;
+}
+
+.gf-badges {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.3rem;
+}
+
+/* ---- Buttons ----------------------------------------------------------- */
+
+.gf-cta {
+  display: inline-block;
+  padding: 0.5rem 1.1rem;
+  margin: 0.2rem 0.4rem 0.2rem 0;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none !important;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.gf-cta-primary {
+  color: #fff !important;
+  background: var(--gf-accent);
+}
+.gf-cta-primary:hover {
+  background: var(--gf-accent-soft);
+}
+
+.gf-cta-secondary {
+  color: var(--pst-color-link) !important;
+  border: 1px solid var(--gf-line);
+}
+.gf-cta-secondary:hover {
+  border-color: var(--gf-accent);
+}
+
+/* ---- sphinx-design cards ----------------------------------------------- */
+
+.sd-card {
+  border: 1px solid var(--gf-line) !important;
+  border-radius: 10px !important;
+  transition: transform 0.16s ease, border-color 0.16s ease;
+  box-shadow: none !important;
+}
+
+.sd-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--gf-accent) !important;
+}
+
+.sd-card-title {
+  font-weight: 650;
+  color: var(--gf-ink);
+}
+html[data-theme="dark"] .sd-card-title {
+  color: #e9ece9;
+}
+
+.sd-card .sd-card-header {
+  border-bottom: none;
+  background: transparent;
+  font-size: 1.05rem;
+}
+
+.sd-card-footer {
+  border-top: 1px solid var(--gf-line);
+  color: var(--gf-accent);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+/* ---- Inline code & blocks ---------------------------------------------- */
+
+code.literal {
+  border-radius: 5px;
+  padding: 0.08em 0.36em;
+  border: 1px solid var(--gf-line);
+}
+
+div.highlight {
+  border-radius: 8px;
+  border: 1px solid var(--gf-line);
+}
+
+/* ---- Tables ------------------------------------------------------------ */
+
+table.docutils {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--gf-line);
+}
+
+table.docutils thead th {
+  background: var(--gf-sand);
+  color: var(--gf-ink);
+  border-bottom: 2px solid var(--gf-accent);
+}
+html[data-theme="dark"] table.docutils thead th {
+  background: rgba(255, 255, 255, 0.04);
+  color: #e9ece9;
+}
+
+/* ---- Admonitions ------------------------------------------------------- */
+
+.admonition,
+div.admonition {
+  border-radius: 8px;
+}
+
+/* ---- Sidebar / nav accents --------------------------------------------- */
+
+.bd-sidebar-primary .nav-link.active,
+nav.bd-links .current > a {
+  color: var(--gf-accent) !important;
+  font-weight: 600;
+}
