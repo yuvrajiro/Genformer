@@ -89,8 +89,8 @@ _github_url = "https://github.com/yuvrajiro/Genformer"
 html_theme_options = {
     "logo": {
         "text": "Genformer",
-        "image_light": "_static/logo-light.svg",
-        "image_dark": "_static/logo-dark.svg",
+        "image_light": "logo.png",
+        "image_dark": "logo.png",
     },
     "show_nav_level": 1,
     "navigation_depth": 3,
