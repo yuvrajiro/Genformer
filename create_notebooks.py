@@ -88,32 +88,46 @@ from genformer.models import GEnformer
 plt.style.use('seaborn-v0_8-darkgrid')
 """))
 
-nb_spatio.cells.append(new_code_cell("""# Dummy data generation: 3 spatial nodes
+nb_spatio.cells.append(new_code_cell("""# Dummy spatiotemporal data generation: 4 spatial nodes with distinct periodic patterns
 time_steps = 150
-num_nodes = 3
-data = np.random.randn(time_steps, num_nodes).astype(np.float32)
-# Add some spatial and temporal correlation
-data[:, 1] += 0.5 * data[:, 0]
-data[:, 2] -= 0.3 * data[:, 1]
-for i in range(1, time_steps):
-    data[i] += 0.2 * data[i-1]
+num_nodes = 4
+x = np.linspace(0, 40, time_steps)
+data = np.zeros((time_steps, num_nodes), dtype=np.float32)
 
-df = pd.DataFrame(data, columns=['Node_0', 'Node_1', 'Node_2'])
+# Node 0: Sine wave
+data[:, 0] = np.sin(x)
+# Node 1: Cosine wave (dependent on Node 0)
+data[:, 1] = np.cos(x) + 0.3 * data[:, 0]
+# Node 2: Faster sine wave (dependent on Node 1)
+data[:, 2] = np.sin(1.5 * x) - 0.2 * data[:, 1]
+# Node 3: Modulated wave (dependent on Node 0 and Node 2)
+data[:, 3] = np.sin(x) * np.cos(2 * x) + 0.15 * data[:, 0] + 0.15 * data[:, 2]
+
+# Add some noise
+data += np.random.normal(0, 0.1, (time_steps, num_nodes)).astype(np.float32)
+
+df = pd.DataFrame(data, columns=['Node_0', 'Node_1', 'Node_2', 'Node_3'])
 series = TimeSeries.from_dataframe(df)
 
-train, val = series[:-30], series[-30:]
+train, val = series[:-10], series[-10:]
 
-plt.figure(figsize=(10, 4))
-train.plot()
-plt.title('Spatiotemporal Dummy Data (3 Nodes)')
+fig, axes = plt.subplots(2, 2, figsize=(12, 8), sharex=True)
+axes = axes.flatten()
+for i in range(num_nodes):
+    train[f'Node_{i}'].plot(ax=axes[i], label=f'Node {i} (Train)')
+    axes[i].legend(loc='upper right')
+    axes[i].set_ylabel(f'Node {i}')
+fig.suptitle('Spatiotemporal Dummy Data (4 Nodes)', fontsize=14)
+plt.tight_layout()
 plt.show()
 """))
 
-nb_spatio.cells.append(new_code_cell("""# Create dummy adjacency matrix (edges)
+nb_spatio.cells.append(new_code_cell("""# Create dummy adjacency matrix (edges) for 4 nodes
 edges = torch.tensor([
-    [0, 1, 1],
-    [1, 0, 1],
-    [1, 1, 0]
+    [0, 1, 1, 1],
+    [1, 0, 1, 0],
+    [1, 1, 0, 1],
+    [1, 0, 1, 0]
 ], dtype=torch.float32)
 
 model = GEnformer(
@@ -122,7 +136,7 @@ model = GEnformer(
     edges=edges,
     num_nodes=num_nodes,
     num_samples_engression=5,
-    n_epochs=2, # Demo
+    n_epochs=10, # Demo
     batch_size=8,
     d_model=64,
     nhead=4,
@@ -151,20 +165,41 @@ predictions_tensor = generate_forecasts(
 predictions_nodes = predictions_tensor.mean(dim=-1).cpu().numpy() # (M, T_out, N)
 """))
 
-nb_spatio.cells.append(new_code_cell("""# For simplicity in this demo, let's plot the mean forecast
-plt.figure(figsize=(12, 6))
-series.plot(label='Actual')
+nb_spatio.cells.append(new_code_cell("""# Let's plot the probabilistic spatiotemporal forecast with confidence intervals!
+fig, axes = plt.subplots(2, 2, figsize=(12, 8), sharex=True)
+axes = axes.flatten()
 
-# Mean across samples
+# Zoom in on the validation period for actuals
+actual_zoomed = series[-40:]
+actual_time_index = actual_zoomed.time_index if actual_zoomed.has_datetime_index else np.arange(len(series)-40, len(series))
+
 mean_forecast = predictions_nodes.mean(axis=0) # (T_out, N)
+q_low = np.quantile(predictions_nodes, 0.05, axis=0) # (T_out, N)
+q_high = np.quantile(predictions_nodes, 0.95, axis=0) # (T_out, N)
+
 forecast_len = mean_forecast.shape[0]
-time_index = np.arange(len(train), len(train) + forecast_len)
+if series.has_datetime_index:
+    forecast_time_index = series.time_index[len(train):len(train)+forecast_len]
+else:
+    forecast_time_index = np.arange(len(train), len(train) + forecast_len)
 
 for i in range(num_nodes):
-    plt.plot(time_index, mean_forecast[:, i], label=f'Node_{i} Forecast', linestyle='--')
+    ax = axes[i]
+    color = 'tab:blue'
+    forecast_color = 'tab:orange'
+    
+    # Plot actual
+    ax.plot(actual_time_index, actual_zoomed.values()[:, i], label=f'Actual Node {i}', color=color)
+    
+    # Plot forecast
+    ax.plot(forecast_time_index, mean_forecast[:, i], label=f'Forecast Node {i}', color=forecast_color, linestyle='--')
+    ax.fill_between(forecast_time_index, q_low[:, i], q_high[:, i], color=forecast_color, alpha=0.3)
+    
+    ax.legend(loc='upper left')
+    ax.set_ylabel(f'Node {i}')
 
-plt.title('GEnformer Spatiotemporal Forecast (Mean)')
-plt.legend()
+fig.suptitle('GEnformer Spatiotemporal Probabilistic Forecast (4 Nodes)', fontsize=14)
+plt.tight_layout()
 plt.show()
 """))
 

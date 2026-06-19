@@ -116,11 +116,11 @@ Explore
       +++
       Core components
 
-   .. grid-item-card:: Citation
-      :link: citation
+   .. grid-item-card:: Contributors
+      :link: contributors
       :link-type: doc
 
-      Cite Genformer and the accompanying paper in your research.
+      Meet the contributors and cite Genformer in your research.
       +++
       BibTeX & references
 
@@ -132,4 +132,4 @@ Explore
    genformer
    noise
    usage
-   citation
+   contributors

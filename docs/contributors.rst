@@ -1,5 +1,15 @@
+Contributors
+============
+
+`Rahul Goswami <https://www.statml.in>`_ • `Donia Besher <https://donia-212.github.io>`_ • `Rajdeep Pathak <https://sites.google.com/view/rajdeeppathak/>`_ • `Madhurima Panja <https://mad-stat.github.io/>`_ • `Tanujit Chakraborty <https://www.ctanujit.org>`_
+
+.. seealso::
+
+   The source code and issue tracker live on
+   `GitHub <https://github.com/yuvrajiro/Genformer>`_.
+
 Citation
-========
+--------
 
 If you use **Genformer** in your research, please cite the accompanying paper.
 
@@ -13,13 +23,3 @@ If you use **Genformer** in your research, please cite the accompanying paper.
      journal = {arXiv preprint arXiv:2603.07108},
      year    = {2026}
    }
-
-Acknowledgements
-----------------
-
-Special thanks to **Donia Besher** for her invaluable contributions and support.
-
-.. seealso::
-
-   The source code and issue tracker live on
-   `GitHub <https://github.com/yuvrajiro/Genformer>`_.
