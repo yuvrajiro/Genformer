@@ -27,7 +27,7 @@ How it works
       strictly proper **Energy Score**.
 
 Because the Energy Score is a strictly proper scoring rule, minimising it drives
-the sampled trajectories toward the true conditional predictive distribution —
+the sampled trajectories toward the true conditional predictive distribution -
 no parametric likelihood assumption required.
 
 Usage
@@ -68,7 +68,7 @@ Enformer follows the standard `Darts <https://unit8co.github.io/darts/>`_
 .. admonition:: Where the uncertainty comes from
    :class: note
 
-   Every ``predict`` call injects fresh noise into the look-back window, so
+   Every ``predict`` call injects  noise into the look-back window, so
    ``num_samples`` independent trajectories are produced. Quantiles over those
    samples form the predictive interval.
 
@@ -97,7 +97,7 @@ Key hyperparameters
      - :math:`\sigma`
      - Scale of the injected stochastic noise.
    * - ``noise_dist``
-     - —
+     - -
      - Noise family: ``"gaussian"`` or ``"uniform"``.
 
 API reference
@@ -107,13 +107,4 @@ API reference
    :members:
    :show-inheritance:
 
-Noise modules
-~~~~~~~~~~~~~~
 
-The engression mechanism is driven by pre-additive stochastic noise layers.
-
-.. autoclass:: genformer.noise.GaussianNoise
-   :members:
-
-.. autoclass:: genformer.noise.UniformNoise
-   :members:

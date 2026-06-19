@@ -3,7 +3,7 @@ name: Publish to PyPI
 # Builds the sdist + wheel and publishes them to PyPI when you push a version
 # tag (e.g. `v0.1.0`) or publish a GitHub Release.
 #
-# Authentication uses PyPI Trusted Publishing (OIDC) — no API token or secret
+# Authentication uses PyPI Trusted Publishing (OIDC) - no API token or secret
 # is required. One-time setup on PyPI:
 #   1. Create the project owner / account at https://pypi.org
 #   2. Go to the project (or "Publishing" for a new project) settings and add a

@@ -42,7 +42,7 @@ Enformer follows the standard `Darts <https://unit8co.github.io/darts/>`_
 .. admonition:: How the uncertainty appears
    :class: note
 
-   Each call to ``predict`` injects fresh noise into the look-back window, so
+   Each call to ``predict`` injects  noise into the look-back window, so
    ``num_samples`` independent trajectories are produced. Quantiles over those
    samples form the predictive interval.
 
@@ -104,7 +104,7 @@ Key hyperparameters
      - :math:`\sigma`
      - Scale of the injected stochastic noise.
    * - ``noise_dist``
-     - —
+     - -
      - Noise family: ``"gaussian"`` or ``"uniform"``.
 
 Next steps

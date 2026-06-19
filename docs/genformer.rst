@@ -95,22 +95,22 @@ Key hyperparameters
      - Symbol
      - Meaning
    * - ``edges``
-     - —
+     - -
      - Adjacency matrix (``num_nodes`` × ``num_nodes``) of the spatial graph.
    * - ``num_nodes``
      - :math:`N`
      - Number of spatial locations.
    * - ``gcn_out_feat``
-     - —
+     - -
      - Dimensionality of the latent spatial embedding from the GCN.
    * - ``num_samples_engression``
      - :math:`M`
      - Ensemble size used to estimate the Energy Score in training.
    * - ``target_coverage``
-     - —
+     - -
      - Target prediction-interval coverage for the calibration loss.
    * - ``lambda_calib``
-     - —
+     - -
      - Weight of the calibration term in the overall objective.
 
 API reference

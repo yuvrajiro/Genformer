@@ -4,11 +4,16 @@
    ======================================================================== */
 
 :root {
-  --gf-ink: #20262b;          /* near-black headings / text          */
-  --gf-accent: #2e6e63;       /* muted teal — the single brand accent */
-  --gf-accent-soft: #5b9085;  /* lighter teal for hover               */
-  --gf-sand: #f6f4ef;         /* warm off-white surface               */
-  --gf-line: #e4e0d8;         /* warm hairline border                 */
+  --gf-ink: #20262b;
+  /* near-black headings / text          */
+  --gf-accent: #2e6e63;
+  /* muted teal - the single brand accent */
+  --gf-accent-soft: #5b9085;
+  /* lighter teal for hover               */
+  --gf-sand: #f6f4ef;
+  /* warm off-white surface               */
+  --gf-line: #e4e0d8;
+  /* warm hairline border                 */
 }
 
 html[data-theme="light"] {
@@ -90,6 +95,7 @@ html[data-theme="dark"] {
   color: #fff !important;
   background: var(--gf-accent);
 }
+
 .gf-cta-primary:hover {
   background: var(--gf-accent-soft);
 }
@@ -98,6 +104,7 @@ html[data-theme="dark"] {
   color: var(--pst-color-link) !important;
   border: 1px solid var(--gf-line);
 }
+
 .gf-cta-secondary:hover {
   border-color: var(--gf-accent);
 }
@@ -120,6 +127,7 @@ html[data-theme="dark"] {
   font-weight: 650;
   color: var(--gf-ink);
 }
+
 html[data-theme="dark"] .sd-card-title {
   color: #e9ece9;
 }
@@ -163,6 +171,7 @@ table.docutils thead th {
   color: var(--gf-ink);
   border-bottom: 2px solid var(--gf-accent);
 }
+
 html[data-theme="dark"] table.docutils thead th {
   background: rgba(255, 255, 255, 0.04);
   color: #e9ece9;
@@ -178,7 +187,7 @@ div.admonition {
 /* ---- Sidebar / nav accents --------------------------------------------- */
 
 .bd-sidebar-primary .nav-link.active,
-nav.bd-links .current > a {
+nav.bd-links .current>a {
   color: var(--gf-accent) !important;
   font-weight: 600;
 }

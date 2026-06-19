@@ -6,7 +6,7 @@
      <h1>Genformer</h1>
      <p class="gf-tagline">
        Deep generative Transformers for probabilistic time series and
-       spatiotemporal forecasting — uncertainty-aware, coherent, and lightweight.
+       spatiotemporal forecasting - uncertainty-aware, robust, and lightweight.
      </p>
      <div class="gf-badges">
        <img src="https://img.shields.io/pypi/v/genformer?color=2e6e63&label=pypi" alt="PyPI">
@@ -56,7 +56,7 @@ Genformer requires **Python 3.10+** and **PyTorch 2.0+**.
 .. tip::
 
    For GPU training, install the CUDA build of PyTorch that matches your driver
-   *before* installing Genformer — see the
+   *before* installing Genformer - see the
    `PyTorch install matrix <https://pytorch.org/get-started/locally/>`_.
 
 Verify it works:
@@ -103,10 +103,18 @@ Explore
       :link: usage
       :link-type: doc
 
-      End-to-end, runnable notebooks for both models — from raw ``TimeSeries``
+      End-to-end, runnable notebooks for both models - from raw ``TimeSeries``
       to a plotted probabilistic forecast.
       +++
       Worked examples
+
+   .. grid-item-card:: Noise Modules
+      :link: noise
+      :link-type: doc
+
+      The pre-additive stochastic noise layers shared by both Enformer and GEnformer.
+      +++
+      Core components
 
    .. grid-item-card:: Citation
       :link: citation
@@ -122,5 +130,6 @@ Explore
    quickstart
    enformer
    genformer
+   noise
    usage
    citation

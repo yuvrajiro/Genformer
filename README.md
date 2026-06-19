@@ -19,7 +19,7 @@ Welcome to **Genformer**! 🎉 This is the official Python package for the paper
 > *"Deep Generative Transformers for Probabilistic Time Series and Spatiotemporal Forecasting"* 📝
 
 Time series forecasting is hard, especially when dealing with uncertainty. **Genformer** brings the power of **Transformers** 🤖 together with the **Engression Paradigm** 🎲 (distributional regression) to give you:
-*   ✨ **Coherent multivariate trajectories** instead of boring point predictions!
+*   ✨ **Robust multivariate trajectories** instead of boring point predictions!
 *   ⚡ **Extremely lightweight** probabilistic capabilities with constant-factor overhead.
 *   🌍 **Spatiotemporal support** via Graph-Enformer (GEnformer) for when your data has geographical/spatial relationships.
 

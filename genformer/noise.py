@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 
 class GaussianNoise(nn.Module):
-    """
+    r"""
     Gaussian noise injection module for the engression paradigm.
     
     This module injects additive Gaussian noise into the continuous representations
@@ -13,14 +13,21 @@ class GaussianNoise(nn.Module):
     rather than point predictions.
     
     Args:
-        std (float): The standard deviation (\\(\sigma\\)) of the Gaussian noise.
+        std (float): The standard deviation (:math:`\sigma`) of the Gaussian noise.
         seed (int | None): An optional seed for reproducible noise generation.
         
     Mathematical Definition:
-        The noise \\(\epsilon^{(m)}\\) is sampled from a Gaussian distribution:
-        \\( \epsilon^{(m)} \sim \mathcal{N}(\mathbf{0}, \sigma^2 \mathbf{I}) \\)
+        The noise :math:`\epsilon^{(m)}` is sampled from a Gaussian distribution:
+
+        .. math::
+
+            \epsilon^{(m)} \sim \mathcal{N}(\mathbf{0}, \sigma^2 \mathbf{I})
+
         The noise is then added to the input sequence:
-        \\( \mathbf{X'}_{batch}^{(m)} = \mathbf{X}_{batch}^{(m)} + \epsilon^{(m)} \\)
+
+        .. math::
+
+            \mathbf{X'}_{batch}^{(m)} = \mathbf{X}_{batch}^{(m)} + \epsilon^{(m)}
     """
     def __init__(self, std: float, seed: int | None = None):
         super().__init__()
@@ -71,21 +78,28 @@ class GaussianNoise(nn.Module):
 
 
 class UniformNoise(nn.Module):
-    """
+    r"""
     Uniform noise injection module for the engression paradigm.
     
     This module injects additive Uniform noise into the continuous representations
     of the sequence.
     
     Args:
-        std (float): The scale parameter (\\(\sigma\\)) defining the noise boundaries.
+        std (float): The scale parameter (:math:`\sigma`) defining the noise boundaries.
         seed (int | None): An optional seed for reproducible noise generation.
         
     Mathematical Definition:
-        The noise \\(\epsilon^{(m)}\\) is sampled from a Uniform distribution:
-        \\( \epsilon^{(m)} \sim \mathcal{U}(-\sigma, \sigma) \\)
+        The noise :math:`\epsilon^{(m)}` is sampled from a Uniform distribution:
+
+        .. math::
+
+            \epsilon^{(m)} \sim \mathcal{U}(-\sigma, \sigma)
+
         The noise is then added to the input sequence:
-        \\( \mathbf{X'}_{batch}^{(m)} = \mathbf{X}_{batch}^{(m)} + \epsilon^{(m)} \\)
+
+        .. math::
+
+            \mathbf{X'}_{batch}^{(m)} = \mathbf{X}_{batch}^{(m)} + \epsilon^{(m)}
     """
     def __init__(self, std: float, seed: int | None = None):
         super().__init__()

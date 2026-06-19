@@ -8,10 +8,9 @@ sys.path.insert(0, os.path.abspath(".."))
 
 project = "Genformer"
 author = (
-    "Rajdeep Pathak, Rahul Goswami, Madhurima Panja, "
-    "Palash Ghosh, Tanujit Chakraborty, Donia Besher"
+    "Rahul Goswami, Donia Besher, Rajdeep Pathak, Madhurima Panja, Tanujit Chakraborty"
 )
-copyright = f"{datetime.now():%Y}, the Genformer authors"
+copyright = f"{datetime.now():%Y}, the {author}"
 release = "0.1.0"
 version = "0.1.0"
 
@@ -45,7 +44,7 @@ autodoc_default_options = {
 
 # Allow the docs to build even when the heavy runtime deps aren't installed
 # (e.g. minimal CI). Autodoc still reads the docstrings without importing these.
-# NOTE: numpy/pandas are intentionally *not* mocked — they are lightweight and
+# NOTE: numpy/pandas are intentionally *not* mocked - they are lightweight and
 # the source uses PEP 604 unions (e.g. ``np.ndarray | None``) that fail against
 # a mock object at import time.
 autodoc_mock_imports = [
@@ -126,7 +125,7 @@ html_context = {
 }
 
 html_sidebars = {
-    "index": [],
+    "**": [],
 }
 
 # Copybutton: strip prompts so users copy clean code
