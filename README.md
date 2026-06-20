@@ -7,7 +7,7 @@
   [![PyPI](https://img.shields.io/pypi/v/genformer?logo=pypi&logoColor=white)](https://pypi.org/project/genformer/)
   [![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)](https://python.org)
   [![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-ee4c2c?logo=pytorch&logoColor=white)](https://pytorch.org)
-  [![Docs](https://img.shields.io/badge/docs-online-6d28d9)](https://yuvrajiro.github.io/Genformer/)
+  [![Docs](https://img.shields.io/badge/docs-online-6d28d9)](https://genformer.readthedocs.io/en/latest/)
   [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 </div>
 
@@ -85,7 +85,7 @@ Extends Enformer by passing the spatial inputs through a Graph Convolutional Net
 
 ## 📚 Documentation & Examples
 
-📖 **Read the full documentation online: [yuvrajiro.github.io/Genformer](https://yuvrajiro.github.io/Genformer/)**
+📖 **Read the full documentation online: [genformer.readthedocs.io](https://genformer.readthedocs.io/en/latest/)**
 
 Extensive documentation is built using Sphinx and `pydata-sphinx-theme`! To build the docs locally:
 ```bash
