@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "genformer"
-version = "0.1.0"
+version = "0.1.1"
 description = "Deep Generative Transformers for Probabilistic Time Series and Spatiotemporal Forecasting"
 readme = "README.md"
 requires-python = ">=3.10"
