@@ -3,18 +3,10 @@ name: Publish to PyPI
 # Builds the sdist + wheel and publishes them to PyPI when you push a version
 # tag (e.g. `v0.1.0`) or publish a GitHub Release.
 #
-# Authentication uses PyPI Trusted Publishing (OIDC) - no API token or secret
-# is required. One-time setup on PyPI:
-#   1. Create the project owner / account at https://pypi.org
-#   2. Go to the project (or "Publishing" for a new project) settings and add a
-#      "Trusted Publisher":
-#        Owner:            yuvrajiro
-#        Repository name:  EnTransformer
-#        Workflow name:    publish.yml
-#        Environment name: pypi
-#   3. Push a tag:  git tag v0.1.0 && git push origin v0.1.0
-#
-# Prefer an API token instead? See the commented block at the bottom.
+# Authentication uses a PyPI API Token. One-time setup:
+#   1. Generate an API token on PyPI (https://pypi.org/manage/account/token/)
+#   2. Go to your GitHub repository Settings -> Secrets and variables -> Actions
+#   3. Create a New repository secret named `PYPI_API_TOKEN` and paste your token.
 
 on:
   push:
@@ -23,9 +15,6 @@ on:
   release:
     types: [published]
   workflow_dispatch:
-
-permissions:
-  contents: read
 
 jobs:
   build:
@@ -55,11 +44,6 @@ jobs:
     name: Publish to PyPI
     needs: build
     runs-on: ubuntu-latest
-    environment:
-      name: pypi
-      url: https://pypi.org/project/genformer/
-    permissions:
-      id-token: write   # required for Trusted Publishing (OIDC)
     steps:
       - name: Download build artifacts
         uses: actions/download-artifact@v4
@@ -69,21 +53,5 @@ jobs:
 
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
-
-  # ---------------------------------------------------------------------------
-  # Alternative: publish with an API token instead of Trusted Publishing.
-  # Remove the `publish` job above, create a PyPI API token, add it as the repo
-  # secret `PYPI_API_TOKEN`, and use this job instead:
-  #
-  #   publish:
-  #     needs: build
-  #     runs-on: ubuntu-latest
-  #     steps:
-  #       - uses: actions/download-artifact@v4
-  #         with:
-  #           name: python-package-distributions
-  #           path: dist/
-  #       - uses: pypa/gh-action-pypi-publish@release/v1
-  #         with:
-  #           password: ${{ secrets.PYPI_API_TOKEN }}
-  # ---------------------------------------------------------------------------
+        with:
+          password: ${{ secrets.PYPI_API_TOKEN }}
