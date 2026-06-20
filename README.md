@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/yuvrajiro/Genformer/main/image.png" alt="Enformer Logo" width="600" />
+  <img src="https://raw.githubusercontent.com/yuvrajiro/Genformer/refs/heads/master/image.png" alt="Enformer Logo" width="600" />
   
   # 🚀 Genformer: Deep Generative Transformers
   **For Probabilistic Time Series and Spatiotemporal Forecasting** 📈✨
